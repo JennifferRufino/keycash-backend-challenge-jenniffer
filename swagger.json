@@ -1,0 +1,191 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "API Imóveis",
+        "description": "Documentation from imoveis API",
+        "version": "1.0.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/imoveis/": {
+            "get": {
+                "tags": ["Imóveis"],
+                "responses": {
+                    "200": {
+                        "description": "Produto com id X encontrado!"
+                    },
+                    "500": {
+                        "description": "Não encontramos produto com esse id"
+                    }
+                }
+            }
+        },
+        "/imovelFilter":{
+            "get": {
+                "tags": ["Imóveis"],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "bathrooms",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Produto com tal característica X encontrado!"
+                    },
+                    "500": {
+                        "description": "Não encontramos produto com essa característica"
+                    }
+                }
+            }
+        },
+        "/imovelEspecifico/{id}": {
+            "get": {
+                "tags": ["Imóveis"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name" : "id",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Produto com id X encontrado!"
+                    },
+                    "500": {
+                        "description": "Não encontramos produto com esse id"
+                    }
+                }
+            }
+        },
+        "/removerImovel/{id}":{
+            "delete": {
+                "tags": ["Imóveis"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name" : "id",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Produto deletado com sucesso!"
+                    },
+                    "500": {
+                        "description": "Não encontramos produto com esse id"
+                    }
+                }
+            }
+        },
+        "/imovel/{id}": {
+            "put": {
+                "tags":["Imóveis"],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "number"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "bedrooms": {
+                                        "type": "number"
+                                    },
+                                    "bathrooms": {
+                                        "type": "number"
+                                    },
+                                    "parking": {
+                                        "type": "number"
+                                    },
+                                    "lotSize": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Apartamento",
+                                    "description": "Apartamento tal e tal e tal",
+                                    "bedrooms": 3,
+                                    "bathrooms": 2,
+                                    "parking": 2,
+                                    "lotSize": 4.1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Imóvel atualizado!"
+                    },
+                    "400": {
+                        "description": "Impossível atualizar pois está faltando informações!"
+                    },
+                    "500": {
+                        "description": "Falha ao processar sua requisição"
+                    }
+                }
+            }
+        },
+        "/imovel": {
+            "post": {
+                "tags": ["Imóveis"],
+                "requestBody": {
+                    "content" : {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "bedrooms": {
+                                        "type": "number"
+                                    },
+                                    "bathrooms": {
+                                        "type": "number"
+                                    },
+                                    "parking": {
+                                        "type": "number"
+                                    },
+                                    "lotSize": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Apartamento",
+                                    "description": "Apartamento tal e tal e tal",
+                                    "bedrooms": 3,
+                                    "bathrooms": 2,
+                                    "parking": 2,
+                                    "lotSize": 4.1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Imóvel criado!"
+                    }
+                }
+            }
+        }
+    }
+}
