@@ -44,7 +44,7 @@
     - npm start
 
 <h1>📄 Documentação </h1>
-<p>Após a instalação e execução do projeto a documentação das APIs estará disponível em: </p>
+<p>Após a instalação e execução do projeto a documentação da API estará disponível em: </p>
         
     - localhost:3333/api-docs
 
